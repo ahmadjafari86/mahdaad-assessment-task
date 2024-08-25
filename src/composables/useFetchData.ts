@@ -4,7 +4,7 @@ import { User } from "../assets/types/User";
 import { useAxiosCounter } from "../composables/state";
 
 export function useFetchData() {
-  let data = ref<{ userList: User[] } | null>(null);
+  let data = ref<User[] | null>(null);
   const error = ref<unknown>(null);
   const loading = ref(false);
 
@@ -15,11 +15,15 @@ export function useFetchData() {
       error.value = null;
       loading.value = true;
       const { data: response } = await axios.get(url);
-      data.value = { userList: response.data };
+      data.value = response.data;
       error.value = null;
     } catch (err) {
+      if (err instanceof Error) {
+        error.value = err.message;
+      } else {
+        error.value = "Data fetching failed with unknown error!";
+      }
       data.value = null;
-      error.value = err;
     } finally {
       loading.value = false;
     }

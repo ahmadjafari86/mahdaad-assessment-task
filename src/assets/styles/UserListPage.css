@@ -1,0 +1,23 @@
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+}
+.danger-btn {
+  border-color: red;
+}
+.success-btn {
+  border-color: green;
+}
+button:disabled {
+  cursor: wait;
+}
+.error {
+  color: red;
+}
+.divider {
+  display: flex;
+  border: 1px solid gray;
+  width: 100%;
+  margin: 50px 0;
+}
