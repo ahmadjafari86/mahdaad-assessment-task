@@ -14,7 +14,7 @@ const { data, error, loading, fetchData } = useFetchData();
   <div>
     <div class="btn-wrapper">
       <button class="success-btn" :disabled="loading" @click="fetchData(url)">Fetch Data</button>
-      <button class="danger-btn" :disabled="loading" @click="fetchData(wrongUrl)">Simulate Fetching data failure</button>
+      <button class="danger-btn" :disabled="loading" @click="fetchData(wrongUrl)">Simulate data fetching failure</button>
     </div>
     <ul v-if="data">
       <li v-for="item in data.userList" :key="item.id">
@@ -23,6 +23,10 @@ const { data, error, loading, fetchData } = useFetchData();
     </ul>
     <p v-if="error" class="error">{{ error }}</p>
     <p v-if="loading">Loading... try: {{ useAxiosCounter.count }}</p>
+  </div>
+  <div class="divider"></div>
+  <div class="shapes-container">
+    <div>first</div>
   </div>
 </template>
 
@@ -38,7 +42,16 @@ const { data, error, loading, fetchData } = useFetchData();
 .success-btn {
   border-color: green;
 }
+button:disabled{
+  cursor: wait;
+}
 .error {
   color: red;
+}
+.divider {
+  display: flex;
+  border: 1px solid gray;
+  width: 100%;
+  margin: 50px 0;
 }
 </style>

@@ -10,6 +10,7 @@ export function useFetchData() {
 
   const fetchData = async (url: string) => {
     try {
+      useAxiosCounter.count = 1;
       data.value = null;
       error.value = null;
       loading.value = true;
@@ -21,7 +22,6 @@ export function useFetchData() {
       error.value = err;
     } finally {
       loading.value = false;
-      useAxiosCounter.count = 1;
     }
   };
 
