@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import axiosRetry from "axios-retry";
 import axios from "axios";
 import "./style.css";
-import App from "./App.vue";
+import App from "./App";
 import { useAxiosCounter } from "./composables/state";
 
 axiosRetry(axios, {

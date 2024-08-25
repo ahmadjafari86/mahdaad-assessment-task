@@ -42,20 +42,19 @@ export default defineComponent({
               Simulate data fetching failure
             </button>
           </div>
-          {data.value?.length && (
-            <div class="user-list-container">
+          <div class="user-list-container">
+            {data.value?.length && (
               <ul>
                 {data.value.map((item) => (
-                  <li key={item.id}>{item.email} name</li>
+                  <li key={item.id}>
+                    ID: {item.id} Email: {item.email}
+                  </li>
                 ))}
               </ul>
-            </div>
-          )}
+            )}
+          </div>
           {error.value && <p class="error">{error.value}</p>}
           {loading.value && <p>Loading... try: {useAxiosCounter.count}</p>}
-        </div>
-        <div class="shapes-container">
-          <div>shapes container</div>
         </div>
       </div>
     );
