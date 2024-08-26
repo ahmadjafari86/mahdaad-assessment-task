@@ -42,7 +42,7 @@ export default defineComponent({
               Simulate data fetching failure
             </button>
           </div>
-          <div class="user-list-container">
+          <div class="user-list-container mt-5">
             {data.value?.length && (
               <ul>
                 {data.value.map((item) => (
